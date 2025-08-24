@@ -275,6 +275,6 @@ For questions and support:
 
 ---
 
-**Built with ❤️ by the IntervuAI Team**
+**Built with ❤️ by the IntervuAI Team**  
 
 *Current Status: Foundation Phase - Dashboard Demo Ready*
