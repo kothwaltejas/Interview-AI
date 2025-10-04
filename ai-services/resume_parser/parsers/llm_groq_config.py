@@ -4,11 +4,15 @@ import os
 from langchain_groq import ChatGroq
 
 def get_llm():
-    """Get the Groq LLM instance with hardcoded API key."""
-    # Hardcoded API key for testing
-    api_key = "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"
+    """Get the Groq LLM instance with API key from environment."""
+    # Get API key from environment variable
+    api_key = os.getenv("GROQ_API_KEY")
     
-    print(f"Debug: Using hardcoded API key, length: {len(api_key)}")
+    if not api_key:
+        # Fallback to hardcoded key if environment variable is not set
+        api_key = "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"
+        print("Warning: Using fallback API key. Set GROQ_API_KEY environment variable for production.")
+    
     try:
         return ChatGroq(
             model="llama-3.1-8b-instant",

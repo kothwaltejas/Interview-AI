@@ -206,27 +206,3 @@ def validate_parsed_resume(parsed_data: Dict[str, Any]) -> Dict[str, Any]:
             parsed_data[field] = []
     
     return parsed_data
-
-
-# -------- Main function for testing --------
-def main():
-    """Main function for testing the parser."""
-    import sys
-    
-    if len(sys.argv) != 2:
-        print("Usage: python pdf_parser.py <path_to_pdf>")
-        return
-    
-    file_path = sys.argv[1]
-    result = parse_resume_from_file_path(file_path)
-    
-    if "error" in result:
-        print(f"Error: {result['error']}")
-    else:
-        validated_result = validate_parsed_resume(result)
-        print("Successfully parsed resume:")
-        print(json.dumps(validated_result, indent=2, ensure_ascii=False))
-
-
-if __name__ == "__main__":
-    main()
